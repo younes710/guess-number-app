@@ -10,6 +10,9 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Screen } from 'react-native-screens';
+import StartGameScreen from './start-game/StartGameScreen';
+import { StyleSheet } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,10 +34,16 @@ export default function RootLayout() {
 
  return (
   <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-   <Stack>
-    <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-    <Stack.Screen name='+not-found' />
-   </Stack>
+   <Screen style={styles.container}>
+    <StartGameScreen />
+   </Screen>
   </ThemeProvider>
  );
 }
+
+const styles = StyleSheet.create({
+ container: {
+  flex: 1,
+  backgroundColor: '#ddb52f',
+ },
+});
