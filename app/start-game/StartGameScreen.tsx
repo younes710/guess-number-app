@@ -1,9 +1,11 @@
 import { TextInput, View, StyleSheet } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
+import { StatusBar } from 'expo-status-bar';
 
 const StartGameScreen = () => {
  return (
   <View style={styles.inputContainer}>
+   <StatusBar style='light' />
    <TextInput
     style={styles.numberInput}
     keyboardType='number-pad'
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
   marginTop: 100,
   marginHorizontal: 24,
   padding: 16,
-  backgroundColor: '#4e0329',
+  backgroundColor: '#3b021f',
   borderRadius: 8,
   // * elevation for android shadow
   elevation: 4,

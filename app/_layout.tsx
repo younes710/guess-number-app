@@ -13,6 +13,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { Screen } from 'react-native-screens';
 import StartGameScreen from './start-game/StartGameScreen';
 import { StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -34,9 +35,9 @@ export default function RootLayout() {
 
  return (
   <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-   <Screen style={styles.container}>
+   <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.container}>
     <StartGameScreen />
-   </Screen>
+   </LinearGradient>
   </ThemeProvider>
  );
 }
@@ -44,6 +45,5 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
  container: {
   flex: 1,
-  backgroundColor: '#ddb52f',
  },
 });
