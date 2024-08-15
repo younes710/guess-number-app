@@ -1,9 +1,12 @@
-import { TextInput, View, StyleSheet, Alert } from 'react-native';
+import { TextInput, View, StyleSheet, StatusBar, Alert } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 
-const StartGameScreen = () => {
+type TProps = {
+ onPickedNumber: (newValue: number) => void;
+};
+
+const StartGameScreen = ({ onPickedNumber }: TProps) => {
  const [enteredNumber, setEnteredNumber] = useState('');
 
  const handlePressReset = () => {
@@ -21,11 +24,13 @@ const StartGameScreen = () => {
    );
    return;
   }
+
+  onPickedNumber(chosenNumber);
  };
 
  return (
   <View style={styles.inputContainer}>
-   <StatusBar style='light' />
+   <StatusBar barStyle={'light-content'} />
    <TextInput
     style={styles.numberInput}
     keyboardType='number-pad'
