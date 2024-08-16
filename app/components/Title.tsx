@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Text, StyleSheet } from 'react-native';
+import Colors from '../utils/colors';
 
 type TProps = {
  children: ReactNode;
@@ -13,11 +14,11 @@ const styles = StyleSheet.create({
  title: {
   fontSize: 24,
   fontWeight: 'bold',
-  color: '#ddb52f',
+  color: Colors.accent500,
   textAlign: 'center',
   padding: 12,
   borderWidth: 2,
-  borderColor: '#ddb52f',
+  borderColor: Colors.accent500,
   borderRadius: 8,
  },
 });

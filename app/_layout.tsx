@@ -12,6 +12,7 @@ import StartGameScreen from './start-game/StartGameScreen';
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import GameScreen from './game-screen/GameScreen';
+import Colors from './utils/colors';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -44,7 +45,10 @@ export default function RootLayout() {
 
  return (
   <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-   <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.container}>
+   <LinearGradient
+    colors={[Colors.primary700, Colors.accent500]}
+    style={styles.container}
+   >
     <ImageBackground
      source={require('../assets/images/background.png')}
      resizeMode='cover'
