@@ -1,10 +1,11 @@
 import { Text, View, StyleSheet, StatusBar, Platform } from 'react-native';
+import Title from '../components/Title';
 
 const GameScreen = () => {
  return (
   <View style={styles.container}>
    <StatusBar barStyle={'light-content'} />
-   <Text>Opponent's Guess</Text>
+   <Title>Opponent's Guess</Title>
    <View>
     <Text>Higher or lower ?</Text>
    </View>
