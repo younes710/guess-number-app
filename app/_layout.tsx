@@ -30,7 +30,7 @@ export default function RootLayout() {
  let screen = <StartGameScreen onPickedNumber={handlePickedNumber} />;
 
  if (userNumber) {
-  screen = <GameScreen />;
+  screen = <GameScreen userNumber={userNumber} />;
  }
 
  useEffect(() => {

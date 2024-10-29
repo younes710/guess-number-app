@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Text, View, Pressable, StyleSheet } from 'react-native';
-import Colors from '../utils/colors';
+import Colors from '../../utils/colors';
 
 type TProps = {
  children: ReactNode;
