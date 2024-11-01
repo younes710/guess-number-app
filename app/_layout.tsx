@@ -13,6 +13,7 @@ import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import GameScreen from './game-screen/GameScreen';
 import Colors from './utils/colors';
+import GameOverScreen from './game-over/GameOverScreen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,15 +23,25 @@ export default function RootLayout() {
   SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
  });
  const [userNumber, setUserNumber] = useState(0);
+ const [gameIsOver, setGameIsOver] = useState(true);
 
  const handlePickedNumber = (pickedNumber: number) => {
   setUserNumber(pickedNumber);
+  setGameIsOver(false);
+ };
+
+ const gameOverHandler = () => {
+  setGameIsOver(true);
  };
 
  let screen = <StartGameScreen onPickedNumber={handlePickedNumber} />;
 
  if (userNumber) {
-  screen = <GameScreen userNumber={userNumber} />;
+  screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />;
+ }
+
+ if (userNumber && gameIsOver) {
+  screen = <GameOverScreen />;
  }
 
  useEffect(() => {
